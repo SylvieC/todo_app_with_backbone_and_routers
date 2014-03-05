@@ -1,5 +1,5 @@
 SpaApp.Views.TodosDetail = Backbone.View.extend({
-  id: "todo-detail"
+  id: "todo-detail",
 
   template: HandlebarsTemplates['todos/detail'],
 
