@@ -23,13 +23,11 @@ window.SpaApp = {
 SpaApp.Routers.Main = Backbone.Router.extend({
 
   routes: {
-    " ": "index",
+    " /": "index",
     "todos/:id": "showDescription"
   },
-  // var router = new SpaApp.Routers.Main();
-  // Backbone.history.start({
-  //   pushState: true
-  // });
+
+
 
   index: function() {
     $.get("/todos.json").done(function(data) {
@@ -43,12 +41,13 @@ SpaApp.Routers.Main = Backbone.Router.extend({
 
   showDescription: function(id) {
     $.get("/todos/" + id + ".json").done(function(data) {
-      var view = new SpaApp.Views.TodosShow({
+      var view = new SpaApp.Views.TodosDetail({
         model: data
       });
       $('#container').html(view.render().el);
     });
   }
+
 });
 
 
